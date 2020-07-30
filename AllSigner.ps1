@@ -2,7 +2,7 @@
 . C:\Scripts\ScriptSigning\New-SignedScript.ps1
 $config = import-csv C:\Scripts\ScriptSigning\config\config.csv
 
-    #region SCRIPTS TO SIGN
+#region SCRIPTS TO SIGN
 # Signer script
 $ScriptFolders = $null
 $ScriptFolders = @(
@@ -12,6 +12,7 @@ $ScriptFolders = @(
     "\\$($config.InfraServer)\c$\Scripts\Generic\Lockouts",
     #offboarding
     "\\bnwinfrats01\c$\Scripts\AD\OffBoarding",
+    "\\BNWINFRATS01.westcoast.co.uk\c$\Scripts\AD\Offboarding02",
     "\\$($config.InfraServer)\c$\Scripts\AD\OffBoarding\Tools",
     #onboarding
     "\\bnwinfrats01\c$\Scripts\AD\OnBoarding",
@@ -23,11 +24,11 @@ $ScriptFolders = @(
     "\\$($config.InfraServer)\c$\Scripts\AD\ADandHRSync",
     "\\$($config.InfraServer)\c$\Scripts\AD\ADandHRSync\Functions"
 )
-    #endregion
+#endregion
 
 
-    #region SIGNING
-foreach ($SF in $ScriptFolders){
+#region SIGNING
+foreach ($SF in $ScriptFolders) {
     New-SignedScript -ScriptFolder $SF
 }
-    #endregion
+#endregion
