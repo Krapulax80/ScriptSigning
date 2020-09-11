@@ -6,6 +6,9 @@ $config = import-csv C:\Scripts\ScriptSigning\config\config.csv
 # Signer script
 $ScriptFolders = $null
 $ScriptFolders = @(
+
+    # HR to AD sync
+    "\\$($config.InfraServer)\c$\Scripts\AD\HR2ADSync"
     #signer script
     "C:\Scripts\ScriptSigning\New-SignedScript.ps1",
     #lockout scripts
@@ -20,9 +23,12 @@ $ScriptFolders = @(
     "\\$($config.InfraServer)\c$\Scripts\InactiveUsers",
     #DNS flips
     "\\BNWITRDS01.westcoast.co.uk\C$\Scripts\DNSFlips",
-    #HR sync
+    #HR sync - WC
     "\\$($config.InfraServer)\c$\Scripts\AD\ADandHRSync",
     "\\$($config.InfraServer)\c$\Scripts\AD\ADandHRSync\Functions"
+    # "\\bnxinfrats01.xma.co.uk\ADandHRSync"
+    # "\\bnxinfrats01.xma.co.uk\ADandHRSync\Functions"
+
 )
 #endregion
 
